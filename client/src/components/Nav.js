@@ -57,7 +57,7 @@ const Nav = () => {
                         <NavLink to='/' className='navbar-link'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/patient' className='navbar-link'>Patient</NavLink>
+                        <NavLink to='/patient' className='navbar-link'>Patient Registration</NavLink>
                     </li>
                     <li>
                         <NavLink to='/radiology' className='navbar-link'>Radiology</NavLink>
