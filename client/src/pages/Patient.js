@@ -1,6 +1,6 @@
 import React from 'react'
 //import styled from 'styled-components';
-import PatientRegForm from './components/PatientRegForm';
+import PatientRegForm from '../components/PatientRegForm';
 
 const Patient = () => {
   

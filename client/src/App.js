@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Contact from './Contact';
-import Facility from './Facility';
-import Radiology from './Radiology';
-import Patient from './Patient';
+import Home from '../src/pages/Home';
+import Contact from '../src/pages/Contact';
+import Facility from '../src/pages/Facility';
+import Radiology from '../src/pages/Radiology.js';
+import Patient from '../src/pages/Patient';
+
 
 
 import { GlobalStyle } from './GlobalStyle';
