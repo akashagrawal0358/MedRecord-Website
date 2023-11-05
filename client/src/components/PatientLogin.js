@@ -10,16 +10,16 @@ const PatientLogin = () => {
             <h2>Patient Login</h2>
             <form action="" method="post" >
                 <div className="form-group">
-                    <label htmlFor="username">Name</label>
+                    <label htmlFor="email">E-Mail</label>
                     <input type="text" />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="username">E-Mail</label>
-                    <input type="text" />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" />
                 </div>
 
                 <div className="form-group">
-                    <button type="submit">Registered</button>
+                    <button type="submit">Login</button>
                 </div>
             </form>
         </div>

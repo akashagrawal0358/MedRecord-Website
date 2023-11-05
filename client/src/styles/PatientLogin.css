@@ -28,6 +28,7 @@
 
 .form-group input {
     width: 100%;
+    letter-spacing: 1px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -36,6 +37,7 @@
 .form-group button {
     margin-top: 7px;
     width: 100%;
+    font-size: 18px;
     padding: 10px ;
     background-color: #007BFF;
     color: #fff;
