@@ -11,6 +11,7 @@ import PatientLogin from './components/PatientLogin.js';
 import { GlobalStyle } from './GlobalStyle';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import SignupNewUser from './components/SignupNewUser.js';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
           <Route path='/radiology' element={<Radiology />} />
           <Route path='/patient' element={<Patient />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/signup' element={<SignupNewUser/>} />
         </Routes>
         <Footer />
       </Router>

@@ -1,7 +1,7 @@
 
 .login-container {
     width: 370px;
-    height: 355px;
+    height: 365px;
     margin: 13rem auto;
     margin-top: 100px;
     background: #fff;
@@ -44,4 +44,12 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.new-user-link{
+    text-decoration: none;
+    color: rgb(100, 100, 240);
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
 }
