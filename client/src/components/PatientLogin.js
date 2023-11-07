@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import '../styles/PatientLogin.css'
 
 
 const PatientLogin = () => {
+    
+    const [email , setEmail] = useState('') ;
+    const [password , setPassword] = useState('') ;
+    
+    const handleLogin = ()=>{
+       console.log(email);
+       console.log(password);
+ 
+           
+
+    }
 
     return (
         <div className="login-container">
@@ -11,15 +22,15 @@ const PatientLogin = () => {
             <form action="" method="post" >
                 <div className="form-group">
                     <label htmlFor="email">E-Mail</label>
-                    <input type="text" />
+                    <input type="text" autoComplete='off' value={email} onChange={(e)=> setEmail(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" />
+                    <input type="password" autoComplete='off' value={password} onChange={(e)=> setPassword(e.target.value)} />
                 </div>
 
                 <div className="form-group">
-                    <button type="submit">Login</button>
+                    <button type="submit" onClick={handleLogin} >Login</button>
                 </div>
             </form>
         </div>
