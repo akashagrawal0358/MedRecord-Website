@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/PatientLogin.css'
+import { NavLink } from 'react-router-dom';
 
 const SignupNewUser = () => {
 
@@ -21,14 +22,14 @@ const SignupNewUser = () => {
                     <input type="password" autoComplete='off' value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">OTP Verification</label>
-                    <input type="password" autoComplete='off' value={OTP} onChange={(e) => setOTP(e.target.value)} />
-                </div>
-
-                <div className="form-group">
-                    <button type="submit"> Verify </button>
+                    <button type="submit"> Send OTP </button>
                 </div>
             </form>
+            <NavLink to="/patient-login" className='new-user-link' >
+                <span>
+                    Go back ?
+                </span>
+            </NavLink>
         </div>
     )
 }
