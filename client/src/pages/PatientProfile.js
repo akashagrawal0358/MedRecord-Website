@@ -2,7 +2,11 @@ import React from 'react'
 
 const PatientProfile = () => {
   return (
-    <div>PatientProfile</div>
+    <div className='container' >
+      <div className='container-profile'>
+        PatientProfile
+      </div>
+    </div>
   )
 }
 

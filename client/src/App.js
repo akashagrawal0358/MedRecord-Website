@@ -12,6 +12,7 @@ import { GlobalStyle } from './GlobalStyle';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import SignupNewUser from './components/SignupNewUser.js';
+import PatientProfile from './pages/PatientProfile.js';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/patient' element={<Patient />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/signup' element={<SignupNewUser/>} />
+          <Route path='/patient-profile' element={<PatientProfile/>} />
         </Routes>
         <Footer />
       </Router>
