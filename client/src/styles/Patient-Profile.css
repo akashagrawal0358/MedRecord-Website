@@ -1,0 +1,16 @@
+
+
+.container-outer-profile{
+    width: 100% ;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-profile{
+    margin-top: -8vh;
+    width: 80vw ;
+    height: 70vh;
+    background-color: aqua;
+    border-radius: 7px;
+}
