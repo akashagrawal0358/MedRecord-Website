@@ -7,7 +7,7 @@ const PatientProfile = () => {
    // <div className='container' >
       <div className='container-outer-profile'>
         <div className='container-profile'>
-          PatientProfile
+          PatientProfileeeee
         </div>
       </div>
   //  </div>
