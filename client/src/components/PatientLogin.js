@@ -13,8 +13,6 @@ const PatientLogin = () => {
         console.log(email);
         console.log(password);
 
-
-
     }
 
     return (
