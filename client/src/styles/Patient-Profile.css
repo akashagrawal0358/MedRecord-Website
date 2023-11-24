@@ -56,12 +56,14 @@ img{
 
 
 
-
-
-
-
-
 .second-col{
     padding: 1rem;
     background-color: rgb(240, 240, 240);
+}
+.PatientProfile{
+    margin: 20px;
+    margin-top: 40px;
+}
+.PatientProfileData{
+    padding: 1rem;
 }
