@@ -3,13 +3,15 @@ import '../styles/PatientLogin.css'
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignupNewUser = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const navigate = useNavigate() ;
+   
     const handleSignup = async (e) => {
          e.preventDefault() ;
         try {
@@ -20,6 +22,8 @@ const SignupNewUser = () => {
             });
             if (response.data.success) {
                 toast.success(response.data.msg);
+                toast("Redirecting to login Page..");
+                navigate('/patient-login');
             }
             else {
                 toast.error(response.data.msg);
