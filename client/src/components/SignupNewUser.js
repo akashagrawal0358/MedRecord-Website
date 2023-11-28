@@ -1,22 +1,40 @@
 import React, { useState } from 'react'
 import '../styles/PatientLogin.css'
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
 
 const SignupNewUser = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignup = async () => {
-        
-        const data = await fetch('http://localhost:8000/signup') ;
-        console.log(name, email, password);
+    const handleSignup = async (e) => {
+         e.preventDefault() ;
+        try {
+            const response = await axios.post('http://localhost:8000/api/patient/signup', {
+                name: name,
+                email: email,
+                password: password
+            });
+            if (response.data.success) {
+                toast.success(response.data.msg);
+            }
+            else {
+                toast.error(response.data.msg);
+            }
+        }
+        catch (error) {
+            toast.error("Something went wrong");
+        }
+
     }
 
     return (
         <div className="login-container-signup">
             <h2>Patient Signup</h2>
-            <form action="" method="post" >
+            <form onSubmit={handleSignup} >
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input type="text" autoComplete='off' value={name} onChange={(e) => setName(e.target.value)} />
@@ -30,7 +48,7 @@ const SignupNewUser = () => {
                     <input type="password" autoComplete='off' value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <button type="submit" onClick={handleSignup} > Signup </button>
+                    <button type="submit"  > Signup </button>
                 </div>
             </form>
             <NavLink to="/patient-login" className='new-user-link' >

@@ -4,6 +4,11 @@ const router = express.Router() ;
 const Patient = require('../models/PatientModel.js');
 const bcrypt = require('bcrypt');
 
+
+
+
+
+
 router.post('/signup', async( req , res)=>{
     try{
        const patientExists = await Patient.findOne({ email : req.body.email });
@@ -28,6 +33,7 @@ router.post('/signup', async( req , res)=>{
         res.status(500).send({ msg: "Error creating Patient" , success: false});
     }
 })
+
 
 router.post('/patient-login', async( req , res)=>{
     try{

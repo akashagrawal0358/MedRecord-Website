@@ -2,21 +2,33 @@ const express = require('express');
 const app = express() ;
 const cors = require('cors');
 
-
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 require('dotenv').config() ;
+
 const PORT = process.env.PORT || 8000 ;
 
 
 const dbconn = require('./db/conn.js');
 app.use(express.json());
-app.use(cors) ;
+app.use(cors()) ;
+dbconn();
 
+
+
+//  route present in patientRoute is mounted like -->  '/api/patient/signup'
 const patientRoute = require('./routes/patientRoute');
 app.use('/api/patient' , patientRoute )
 
-dbconn();
 
+
+
+// app.get('/', (req, res) => {
+//     res.send("server")
+// })
+
+//app.use('/' , router) ;
 
 
 

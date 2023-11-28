@@ -13,12 +13,17 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import SignupNewUser from './components/SignupNewUser.js';
 import PatientProfile from './pages/PatientProfile.js';
+import { Toaster } from 'react-hot-toast';
 
 
 const App = () => {
   return (
     <>
       <Router>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
         <GlobalStyle />
         <Nav />
         <Routes>
@@ -28,8 +33,8 @@ const App = () => {
           <Route path='/radiology' element={<Radiology />} />
           <Route path='/patient' element={<Patient />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/signup' element={<SignupNewUser/>} />
-          <Route path='/patient-profile' element={<PatientProfile/>} />
+          <Route path='/signup' element={<SignupNewUser />} />
+          <Route path='/patient-profile' element={<PatientProfile />} />
         </Routes>
         <Footer />
       </Router>
