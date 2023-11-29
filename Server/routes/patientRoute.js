@@ -80,13 +80,13 @@ router.post('/patient-login', async (req, res) => {
 router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
 
     try {
-        const patient = await patient.findOne({ _id: req.body.patientId });
+        const patient = await Patient.findOne({ id: req.body.patientId });
         if (!patient) {
             return res.status(200).send({ msg: "Patient not Exists", success: false });
         }
         else {
             res.status(200).send({
-                success: false, data: {
+                success: true, data: {
                     name: patient.name,
                     email: patient.email
                 }
