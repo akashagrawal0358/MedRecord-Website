@@ -4,6 +4,8 @@ import '../styles/PatientLogin.css'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
+import { useSelector, useDispatch } from 'react-redux';
+
 
 const PatientLogin = () => {
     
@@ -11,6 +13,11 @@ const PatientLogin = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate() ;
 
+// hook provided by the react-redux library, which is commonly used with React applications to interact with a Redux store.
+    const {loading} = useSelector((state) => state.alerts);
+    console.log(loading);
+
+    
     const handleLogin = async (e) => {
         e.preventDefault();
 

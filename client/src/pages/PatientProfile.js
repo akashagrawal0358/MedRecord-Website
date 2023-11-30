@@ -1,11 +1,11 @@
-import React, { useState , useEffect} from 'react'
+import React, { useEffect} from 'react'
 import '../styles/Patient-Profile.css'
 import PatientProfileData from '../components/PatientProfileData';
 
 
 const PatientProfile = () => {
   
-  const[clickedLink , setClickedLink] = useState('Patient Profile'); 
+ // const[clickedLink , setClickedLink] = useState('Patient Profile'); 
   
   
   useEffect(()=>{
