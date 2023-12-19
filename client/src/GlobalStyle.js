@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Work Sans", sans-serif
  }
  
-.container{
+.containerr{
     max-width : 120rem ;
     margin : 0 auto ;
     

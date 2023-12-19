@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const Nav = () => {
     const Nav = styled.nav`
       
-    .navbar{
+    .navbarr{
       background-color: #fff;
       width: 100vw;
       height: 5rem; 
@@ -16,7 +16,7 @@ const Nav = () => {
       
     }
 
-    .navbar-lists{
+    .navbarr-lists{
         display: flex;
         gap: 3rem;
         align-items: center;
@@ -26,11 +26,12 @@ const Nav = () => {
         right: 10%;
     }
         
-      .navbar-link{
+      .navbarr-link{
         text-transform: uppercase;
         font-size: 1.2rem;
         font-weight: 500;
         text-decoration: none;
+        color : black
       }
     }
 
@@ -47,26 +48,26 @@ const Nav = () => {
 
     return (
         <Nav>
-            <div className='navbar'>
+            <div className='navbarr'>
                 <NavLink to='/'>
                     <img className='logo' src='./Images/medLogo.png' alt='Logo not found' />
                 </NavLink>
 
-                <ul className='navbar-lists'>
+                <ul className='navbarr-lists'>
                     <li>
-                        <NavLink to='/' className='navbar-link'>Home</NavLink>
+                        <NavLink to='/' className='navbarr-link'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/patient' className='navbar-link'>Patient Registration</NavLink>
+                        <NavLink to='/patient' className='navbarr-link'>Patient Registration</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/signup' className='navbar-link'>Patient Signup</NavLink>
+                        <NavLink to='/signup' className='navbarr-link'>Patient Signup</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/radiology' className='navbar-link'>Radiology</NavLink>
+                        <NavLink to='/radiology' className='navbarr-link'>Radiology</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/contact' className='navbar-link'>Contact</NavLink>
+                        <NavLink to='/contact' className='navbarr-link'>Contact</NavLink>
                     </li>
 
                 </ul>

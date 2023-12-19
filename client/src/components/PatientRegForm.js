@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wrapper = styled.section`
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-  .container {
+  .containerr{
     position: relative;
     max-width: 700px;
     width: 100%;
@@ -13,13 +13,13 @@ const Wrapper = styled.section`
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   }
-  .container header {
+  .containerr header {
     font-size: 1.5rem;
     color: #333;
     font-weight: 600;
     text-align: center;
   }
-  .container .form {
+  .containerr .form {
     margin-top: 30px;
   }
   .form .input-box {
@@ -159,7 +159,7 @@ const PatientRegForm = () => {
 
   return (
     <Wrapper >
-      <div className='container'>
+      <div className='containerr'>
         <header>Patient Registration Form</header>
         <form method="POST" className="form">
           <div className="input-box">

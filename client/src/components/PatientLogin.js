@@ -5,46 +5,55 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { hideLoading, showLoading } from '../redux/alertsSlice';
 
 
 const PatientLogin = () => {
-    
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate() ;
+    const navigate = useNavigate();
+    const dispatch = useDispatch() ;
 
-// hook provided by the react-redux library, which is commonly used with React applications to interact with a Redux store.
-    const {loading} = useSelector((state) => state.alerts);
-    console.log(loading);
 
+    // hook provided by the react-redux library, which is commonly used with React applications to interact with a Redux store.
+    // const {loading} = useSelector((state) => state.alerts);
+    // console.log(loading);
     
     const handleLogin = async (e) => {
         e.preventDefault();
-
+        
+        
         try {
+
+            dispatch(showLoading())
+
             const response = await axios.post('http://localhost:8000/api/patient/patient-login', {
                 email: email,
                 password: password
             })
-            if(response.data.success){
-                toast.success(response.data.msg) ;
+
+            dispatch(hideLoading());
+            if (response.data.success) {
+                toast.success(response.data.msg);
                 toast("Redirecting to Profile Page");
                 // store token that received from backend
                 // inside  --> data : token
-                localStorage.setItem('token', response.data.data );
-                navigate('/patient-profile') ;
+                localStorage.setItem('token', response.data.data);
+                navigate('/patient-profile');
             }
-            else{
-                toast.error(response.data.msg) ;
+            else {
+                toast.error(response.data.msg);
             }
         }
         catch (error) {
-            toast.error("Something went wrong") ;
+            dispatch(hideLoading());
+            toast.error("Something went wrong");
         }
     }
 
     return (
-        <div className="login-container">
+        <div className="login-containerr">
             <h2>Patient Login</h2>
             <form onSubmit={handleLogin} >
                 <div className="form-group">

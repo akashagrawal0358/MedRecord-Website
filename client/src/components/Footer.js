@@ -83,7 +83,7 @@ const Footer = () => {
       .grid{
         gap : 2.5rem ;
       }
-      .container {
+      .containerr {
         max-width: 130rem;
         padding: 0 3.2rem;
        }
@@ -113,7 +113,7 @@ const Footer = () => {
   return (
     <Wrapper className='footer'>
       <footer>
-        <div className='container grid grid-four'>
+        <div className='containerr grid grid-four'>
           <div className='foot-info'>
             <h3 >MedRec</h3>
             <p>lodnejjjjjjjjjdnnnnnnnnnnnnnn
@@ -155,7 +155,7 @@ const Footer = () => {
 
         <div className="footer-bottom--section">
           <hr />
-          <div className="container grid grid-two pad">
+          <div className="containerr grid grid-two pad">
             <p>
               @{new Date().getFullYear()} MedRec. All Rights Reserved
             </p>

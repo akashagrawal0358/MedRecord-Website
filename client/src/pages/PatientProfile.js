@@ -26,8 +26,8 @@ const PatientProfile = () => {
    
 
   return (
-    <div className='container-outer-profile'>
-      <div className='container-profile'>
+    <div className='containerr-outer-profile'>
+      <div className='containerr-profile'>
         <div className='first-col'>
           <div className='profile-img'>
             <figure>

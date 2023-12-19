@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { hideLoading, showLoading } from '../redux/alertsSlice';
 
 
 const SignupNewUser = () => {
@@ -11,15 +13,18 @@ const SignupNewUser = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate() ;
+    const dispatch = useDispatch();
    
     const handleSignup = async (e) => {
          e.preventDefault() ;
         try {
+            dispatch(showLoading());
             const response = await axios.post('http://localhost:8000/api/patient/signup', {
                 name: name,
                 email: email,
                 password: password
             });
+            dispatch(hideLoading())
             if (response.data.success) {
                 toast.success(response.data.msg);
                 toast("Redirecting to login Page..");
@@ -30,13 +35,14 @@ const SignupNewUser = () => {
             }
         }
         catch (error) {
+            dispatch(hideLoading());
             toast.error("Something went wrong");
         }
 
     }
 
     return (
-        <div className="login-container-signup">
+        <div className="login-containerr-signup">
             <h2>Patient Signup</h2>
             <form onSubmit={handleSignup} >
                 <div className="form-group">

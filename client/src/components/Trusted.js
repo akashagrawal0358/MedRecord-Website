@@ -5,7 +5,7 @@ const Trusted = () => {
      .trusted-section{
         padding : 20rem
      }
-     .container{
+     .containerr{
         padding-top : 4rem ;
         margin : 0 auto ;
         
@@ -50,7 +50,7 @@ const Trusted = () => {
   `;
     return (
         <Wrapper className="trusted-section">
-            <div className="container" >
+            <div className="containerr" >
                 <h1 className="t-heading">Trusted By 1000+ companies</h1>
                 <div className="companyLogos">
                     <div className="Tlogo">

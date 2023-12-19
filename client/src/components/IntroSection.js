@@ -50,7 +50,7 @@ const IntroSection = () => {
 
     return (
         <Wrapper>
-            <div className='container'>
+            <div className='containerr'>
                 <div className='IntroImage'>
                     <figure>
                         <img
