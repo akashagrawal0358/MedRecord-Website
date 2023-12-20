@@ -1,29 +1,29 @@
-import React, { useEffect} from 'react'
+import React, { useEffect } from 'react'
 import '../styles/Patient-Profile.css'
 import PatientProfileData from '../components/PatientProfileData';
 
 
 const PatientProfile = () => {
-  
- // const[clickedLink , setClickedLink] = useState('Patient Profile'); 
-  
-  
-  useEffect(()=>{
+
+  // const[clickedLink , setClickedLink] = useState('Patient Profile'); 
+
+
+  useEffect(() => {
     // fetched Profile Data every first time when component renders 
-    fetchProfileData() ;
+    fetchProfileData();
   }, []);
-  
+
 
 
   const handleLinkClick = () => {
-      console.log("clicked");
-      
-     
+   // console.log("clicked");
+
+
   }
-  
-  const fetchProfileData = ()=>{
+
+  const fetchProfileData = () => {
   }
-   
+
 
   return (
     <div className='containerr-outer-profile'>
@@ -55,7 +55,7 @@ const PatientProfile = () => {
         </div>
 
         <div className='second-col'>
-             <PatientProfileData/>
+          <PatientProfileData />
         </div>
       </div>
 
