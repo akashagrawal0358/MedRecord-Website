@@ -53,7 +53,7 @@ router.post('/patient-login', async (req, res) => {
             return res.status(200).send({ msg: "Password not matched", success: false });
         }
         else {
-            const token = jwt.sign({ id: Patient._id }, process.env.JWT_SECRET, { expiresIn: "1d" })
+            const token = jwt.sign({ id: patient._id }, process.env.JWT_SECRET, { expiresIn: "1d" })
             res.status(200).send({ msg: "Login Successfull", success: true, data: token });
         }
     }
@@ -80,8 +80,12 @@ router.post('/patient-login', async (req, res) => {
 router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
 
     try {
-        const patient = await Patient.findOne({ id: req.body.patientId });
-        console.log(patient.name);
+        const patientId = req.patient.id;
+        console.log("Patient ID from token:", patientId);
+        
+        const patient = await Patient.findById(patientId);
+
+
         if (!patient) {
             return res.status(200).send({ msg: "Patient not Exists", success: false });
         }

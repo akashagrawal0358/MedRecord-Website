@@ -19,7 +19,12 @@ module.exports = async (req, res, next) => {
             }
             else {
                 // {id : Patient._id}
-                req.body.patientId = decoded.id;
+              //  req.body.patientId = decoded.id;
+             
+               req.patient = {
+                id : decoded.id
+               }
+
                 next();
             }
         });
