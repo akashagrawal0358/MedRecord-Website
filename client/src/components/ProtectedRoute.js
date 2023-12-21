@@ -14,28 +14,30 @@ function ProtectedRoute(props) {
   const dispatch = useDispatch();
 
   const getpatient = async () => {
-    
+
     try {
-      dispatch(showLoading);
+      dispatch(showLoading());
       const response = await axios.post('http://localhost:8000/api/patient/get-patient-info-by-id',
         {
           token: localStorage.getItem('token')
         },
         {
-          headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         }
       );
-      dispatch(hideLoading);
+      dispatch(hideLoading());
 
       if (response.data.success) {
         dispatch(setPatient(response.data.data));
       }
       else {
+        localStorage.clear();
         navigate('/patient-login');
       }
     }
     catch (error) {
-      dispatch(hideLoading);
+      dispatch(hideLoading());
+      localStorage.clear();
       navigate('/patient-login');
     }
 

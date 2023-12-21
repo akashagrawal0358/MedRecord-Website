@@ -81,6 +81,7 @@ router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
 
     try {
         const patient = await Patient.findOne({ id: req.body.patientId });
+        console.log(patient.name);
         if (!patient) {
             return res.status(200).send({ msg: "Patient not Exists", success: false });
         }
@@ -88,7 +89,7 @@ router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
             res.status(200).send({
                 success: true, data: {
                     name: patient.name,
-                    email: patient.email
+                    email: patient.email,
                 }
             });
         }
