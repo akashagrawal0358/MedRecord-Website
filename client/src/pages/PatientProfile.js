@@ -42,7 +42,7 @@ const PatientProfile = () => {
               Patient Profile
             </div>
             <div className='link' onClick={() => handleLinkClick('Patient Reports')}>
-              Reports
+              Appointments
             </div>
             <div className='link' onClick={() => handleLinkClick('Status')}>
               Status
