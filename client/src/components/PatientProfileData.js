@@ -11,7 +11,7 @@ const PatientProfileData = () => {
       <h2 style={{textAlign: "center"}}> Patient Profile</h2>
       <div className='PatientProfile'>
         <div className='PatientProfileData'>
-          <span >Name: </span>
+          <span >Name: {patient?.name}</span>
         
         </div>
         <div className='PatientProfileData'>

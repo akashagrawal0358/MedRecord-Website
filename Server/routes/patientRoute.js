@@ -81,20 +81,20 @@ router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
 
     try {
         const patientId = req.patient.id;
-        console.log("Patient ID from token:", patientId);
+      //  console.log("Patient ID from token:", patientId);
         
         const patient = await Patient.findById(patientId);
 
+        // Sensitive password not send to client 
+        patient.password = undefined ;
 
         if (!patient) {
             return res.status(200).send({ msg: "Patient not Exists", success: false });
         }
         else {
             res.status(200).send({
-                success: true, data: {
-                    name: patient.name,
-                    email: patient.email,
-                }
+                success: true, 
+                data: patient
             });
         }
     }

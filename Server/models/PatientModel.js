@@ -15,6 +15,22 @@ const PatientSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    isDoctor: {
+        type: Boolean,
+        default: false
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    seenNotification: {
+        type: Array,
+        default: []
+    },
+    unseenNotification: {
+        type: Array,
+        default: []
     }
 
 }, {

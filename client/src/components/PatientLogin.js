@@ -39,7 +39,9 @@ const PatientLogin = () => {
                 toast("Redirecting to Profile Page");
                 // store token that received from backend
                 // inside  --> data : token
+                
                 localStorage.setItem('token', response.data.data);
+              
                 navigate('/patient-profile');
             }
             else {
