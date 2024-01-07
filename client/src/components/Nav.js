@@ -64,9 +64,6 @@ const Nav = () => {
                         <NavLink to='/signup' className='navbarr-link'>Patient Signup</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/radiology' className='navbarr-link'>Radiology</NavLink>
-                    </li>
-                    <li>
                         <NavLink to='/contact' className='navbarr-link'>Contact</NavLink>
                     </li>
 

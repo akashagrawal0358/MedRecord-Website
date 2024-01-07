@@ -14,6 +14,7 @@ import PatientProfile from './pages/PatientProfile.js';
 import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import ProtectedRoute from './components/ProtectedRoute.js';
+import ApplyDoctor from './components/ApplyDoctor.js';
 
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/signup' element={<SignupNewUser />} />
           <Route path='/patient-profile' element={<ProtectedRoute><PatientProfile/></ProtectedRoute>} />
+          <Route path='/apply-doctor' element={<ProtectedRoute><ApplyDoctor/></ProtectedRoute>} />
         </Routes>
         <Footer />
       </Router>

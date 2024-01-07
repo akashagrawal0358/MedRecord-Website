@@ -4,6 +4,7 @@ import PatientProfileData from '../components/PatientProfileData';
 import Appointments from '../components/Appointments';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import ApplyDoctor from '../components/ApplyDoctor';
 
 const PatientProfile = () => {
   const [activeLink, setactiveLink] = useState('Patient Profile');
@@ -25,6 +26,9 @@ const PatientProfile = () => {
     switch (activeLink) {
       case 'Appointments':
         return <Appointments />;
+      case 'Apply-doctor':
+        return <ApplyDoctor />
+      // return navigate('/apply-doctor');
       case 'Patients':
         return <div>List of Patients</div>;
       case 'Doctors':
@@ -82,7 +86,7 @@ const PatientProfile = () => {
             <div className='link' onClick={() => handleLinkClick('Appointments')}>
               Appointments
             </div>
-            <div className='link' onClick={() => handleLinkClick('Apply')}>
+            <div className='link' onClick={() => handleLinkClick('Apply-doctor')}>
               Apply Doctor
             </div>
             <div className='link' onClick={() => handleLinkClick('Contact')}>
