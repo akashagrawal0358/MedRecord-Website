@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const Patient = require('../models/PatientModel.js');
+const Doctor = require('../models/DoctorModel.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -81,19 +82,19 @@ router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
 
     try {
         const patientId = req.patient.id;
-      //  console.log("Patient ID from token:", patientId);
-        
+        //  console.log("Patient ID from token:", patientId);
+
         const patient = await Patient.findById(patientId);
 
         // Sensitive password not send to client 
-        patient.password = undefined ;
+        patient.password = undefined;
 
         if (!patient) {
             return res.status(200).send({ msg: "Patient not Exists", success: false });
         }
         else {
             res.status(200).send({
-                success: true, 
+                success: true,
                 data: patient
             });
         }
@@ -102,6 +103,35 @@ router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
         res.status(500).send({ msg: "Error getting patient info", success: false, error });
     }
 })
+
+
+router.post('/apply-doctor', async (req, res) => {
+
+    try {
+        const newdoctor = new Doctor({ ...req.body, status: "pending" });
+        await newdoctor.save();
+        
+        //  In this we finding the admin to send new-doctor-request to admin
+        const adminUser = await Patient.findOne({ isAdmin: true });
+        const unseenNotifications = adminUser.unseenNotification;
+        unseenNotifications.push({
+            type: "new-doctor-request",
+            message: `${newdoctor.firstName} ${newdoctor.lastName} has applied for a doctor account `,
+            data: {
+                doctorId: newdoctor._id,
+                name: newdoctor.firstName + " " + newdoctor.lastName
+            },
+            onclickPath: "/admin/doctors"
+        })
+        await Patient.findByIdAndUpdate( adminUser._id , { unseenNotifications }) ;
+         res.status(200).send({ msg: "Account apply Successfully", success: true });
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).send({ msg: "Error applying doctor account", success: false })
+    }
+})
+
 
 
 module.exports = router;
