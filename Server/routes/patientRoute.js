@@ -105,6 +105,7 @@ router.post('/get-patient-info-by-id', authMiddleware, async (req, res) => {
 })
 
 
+
 router.post('/apply-doctor', async (req, res) => {
 
     try {
@@ -113,8 +114,8 @@ router.post('/apply-doctor', async (req, res) => {
         
         //  In this we finding the admin to send new-doctor-request to admin
         const adminUser = await Patient.findOne({ isAdmin: true });
-        const unseenNotifications = adminUser.unseenNotification;
-        unseenNotifications.push({
+        const unseenNotification = adminUser.unseenNotification;
+        unseenNotification.push({
             type: "new-doctor-request",
             message: `${newdoctor.firstName} ${newdoctor.lastName} has applied for a doctor account `,
             data: {
@@ -123,15 +124,15 @@ router.post('/apply-doctor', async (req, res) => {
             },
             onclickPath: "/admin/doctors"
         })
-        await Patient.findByIdAndUpdate( adminUser._id , { unseenNotifications }) ;
-         res.status(200).send({ msg: "Account apply Successfully", success: true });
+        
+        // Updating unseenNotification of AdminUser
+        await Patient.findByIdAndUpdate( adminUser._id , { unseenNotification }) ;
+        res.status(200).send({ msg: "Account apply Successfully", success: true });
     }
     catch (error) {
         console.log(error);
         return res.status(500).send({ msg: "Error applying doctor account", success: false })
     }
 })
-
-
 
 module.exports = router;

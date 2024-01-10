@@ -5,6 +5,8 @@ import Appointments from '../components/Appointments';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import ApplyDoctor from '../components/ApplyDoctor';
+import AdminProfileData from '../components/AdminProfileData';
+
 
 const PatientProfile = () => {
   const [activeLink, setactiveLink] = useState('Patient Profile');
@@ -26,13 +28,20 @@ const PatientProfile = () => {
     switch (activeLink) {
       case 'Appointments':
         return <Appointments />;
+
       case 'Apply-doctor':
+
         return <ApplyDoctor />
       // return navigate('/apply-doctor');
+
       case 'Patients':
         return <div>List of Patients</div>;
+
+      case 'Admin-profile':
+        return <AdminProfileData />;
       case 'Doctors':
         return <div>List of Doctors</div>;
+
       case 'Contact':
         return <div>Contact Component</div>;
       default:
@@ -46,8 +55,9 @@ const PatientProfile = () => {
       if (patient.isAdmin) {
         return (
           <>
-            <div className='link' onClick={() => handleLinkClick()}>
-              Admin Profile
+            <div className='link' onClick={() => handleLinkClick('Admin-profile')}>
+              Profile
+
             </div>
             <div className='link' onClick={() => handleLinkClick('Patients')}>
               Patients
