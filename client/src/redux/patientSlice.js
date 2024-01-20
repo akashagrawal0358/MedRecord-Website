@@ -7,16 +7,21 @@ export const patientSlice = createSlice({
     name: "patient",
     initialState : {
         patient : null,
+        reloadPatient: false
     },
 
     // reducers functions to change patient state 
     reducers: {
         setPatient : (state, action)=>{
             state.patient = action.payload ;
+        },
+        reloadPatientData : (state, action)=>{
+            state.reloadPatient = action.payload ;
         }
+
     }
 });
 
-export const{ setPatient } = patientSlice.actions ;
+export const{ setPatient, reloadPatientData } = patientSlice.actions ;
 
 

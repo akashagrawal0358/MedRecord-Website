@@ -111,7 +111,7 @@ router.post('/apply-doctor', async (req, res) => {
     try {
         const newdoctor = new Doctor({ ...req.body, status: "pending" });
         await newdoctor.save();
-        
+
         //  In this we finding the admin to send new-doctor-request to admin
         const adminUser = await Patient.findOne({ isAdmin: true });
         const unseenNotification = adminUser.unseenNotification;
@@ -124,9 +124,9 @@ router.post('/apply-doctor', async (req, res) => {
             },
             onclickPath: "/admin/doctors"
         })
-        
+
         // Updating unseenNotification of AdminUser
-        await Patient.findByIdAndUpdate( adminUser._id , { unseenNotification }) ;
+        await Patient.findByIdAndUpdate(adminUser._id, { unseenNotification });
         res.status(200).send({ msg: "Account apply Successfully", success: true });
     }
     catch (error) {
@@ -134,5 +134,67 @@ router.post('/apply-doctor', async (req, res) => {
         return res.status(500).send({ msg: "Error applying doctor account", success: false })
     }
 })
+
+
+
+
+router.post('/mark-all-as-seen', async (req, res) => {
+
+    try {
+        const patient = await Patient.findOne({ _id: req.body.patientId });
+        const unseenNotification = patient.unseenNotification;
+        const seenNotification = patient.seenNotification;
+
+        // Push all unseenNotification in seenNotification 
+        seenNotification.push(...unseenNotification)
+
+        // Now making unseenNotification array empty 
+        patient.unseenNotification = [];
+
+        // Making all unseenNotifications to seenNotification  
+        patient.seenNotification = seenNotification;
+
+        const updatedPatient = await patient.save() ;
+        updatedPatient.password = undefined;
+        res.status(200).send({
+            success: true,
+            msg: "All notifications marked as seen",
+            data: updatedPatient
+        })
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).send({ msg: "Error applying doctor account", success: false })
+    }
+})
+
+
+
+router.post('/delete-all-notifications', async (req, res) => {
+
+    try {
+        const patient = await Patient.findOne({ _id: req.body.patientId });
+
+
+        // Deleting all unseenNotification and seenNotification  
+        patient.seenNotification = []
+        patient.UnseenNotification = []
+
+        const updatedPatient = await patient.save() ;
+        updatedPatient.password = undefined;
+        res.status(200).send({
+            success: true,
+            msg: "All notifications deleted",
+            data: updatedPatient,
+        });
+
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).send({ msg: "Error applying doctor account", success: false })
+    }
+})
+
+
 
 module.exports = router;

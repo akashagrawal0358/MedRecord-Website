@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import '../styles/Patient-Profile.css'
-import PatientProfileData from '../components/PatientProfileData';
+
 import Appointments from '../components/Appointments';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import ApplyDoctor from '../components/ApplyDoctor';
 import AdminProfileData from '../components/AdminProfileData';
+import Doctors from '../components/Doctors';
 
 
 const PatientProfile = () => {
@@ -40,7 +41,7 @@ const PatientProfile = () => {
       case 'Admin-profile':
         return <AdminProfileData />;
       case 'Doctors':
-        return <div>List of Doctors</div>;
+        return <Doctors/>;
 
       case 'Contact':
         return <div>Contact Component</div>;

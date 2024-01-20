@@ -15,6 +15,7 @@ import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import ProtectedRoute from './components/ProtectedRoute.js';
 import ApplyDoctor from './components/ApplyDoctor.js';
+import Notifications from './pages/Notifications.js';
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
           <Route path='/signup' element={<SignupNewUser />} />
           <Route path='/patient-profile' element={<ProtectedRoute><PatientProfile/></ProtectedRoute>} />
           <Route path='/apply-doctor' element={<ProtectedRoute><ApplyDoctor/></ProtectedRoute>} />
+          <Route path='/notifications' element={<ProtectedRoute><Notifications/></ProtectedRoute>} />
         </Routes>
         <Footer />
       </Router>
